@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Listagens</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Orientações Editoriais</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Principal</a>
+</li>
+<li>
+  <a href="about.html">Sobre</a>
+</li>
+<li>
+  <a href="Etapas.html">Etapas</a>
+</li>
+<li>
+  <a href="Citacao.html">Citações</a>
+</li>
+<li>
+  <a href="EntregaOriginais.html">Originais</a>
+</li>
+<li>
+  <a href="CheckListPF.html">CheckList</a>
+</li>
+<li>
+  <a href="Listas.html">Listas</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Listagens</h1>
+
+</div>
+
+
+<div id="instituições-conscienciocêntricas" class="section level1">
+<h1>Instituições Conscienciocêntricas</h1>
+<p><strong>ICs.</strong> As <em>Instituições Conscienciocêntricas</em> (ICs) são organizações cujos objetivos, metodologias de trabalho e modelos organizacionais estão fundamentados no <em>Paradigma Consciencial.</em> A atividade principal das ICs é apoiar a evolução das consciências através da <em>tarefa do esclarecimento</em> pautada pelas <em>verdades relativas de ponta,</em> encontradas nas pesquisas no campo da Ciência Conscienciologia e especialidades.</p>
+<p><strong>Voluntariado.</strong> Todas as <em>Instituições Conscienciocêntricas</em> são associações independentes, de caráter privado, sem fins de lucro e mantidas predominantemente pelo trabalho voluntário de professores, pesquisadores, administradores e profissionais de diversas áreas.</p>
+<p><strong>CCCI.</strong> O conjunto das <em>Instituições Conscienciocêntricas</em> e dos voluntários da Conscienciologia no planeta compõe a <em>Comunidade Conscienciológica Cosmoética Internacional</em> (CCCI) formada atualmente por 24 ICs, incluindo a <em>Associação Internacional Editares.</em></p>
+<p>AIEC – Associação Internacional para Expansão da Conscienciologia<br />
+<strong>Fundação:</strong> 22/04/2005<br />
+<strong>Sede:</strong> Av. Felipe Wandscheer, 6.200, sala 201, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong><em>Campus Discernimentum</em></strong>: Av. Felipe Wandscheer, 6.200, sala 201, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong>Tel.:</strong> +55 (45) 2102-1411<br />
+<strong><em>Site:</em></strong> www.worldaiec.org<br />
+<strong>Contato:</strong> <a href="mailto:aiec.comunicacao@gmail.com" class="email">aiec.comunicacao@gmail.com</a></p>
+<p>APEX – Associação Internacional da Programação Existencial<br />
+<strong>Fundação:</strong> 20/02/2007<br />
+<strong>Sede:</strong> Rua da Cosmoética, 1.511, Cognópolis, Caixa Postal 921, Centro, Foz do Iguaçu, Paraná, Brasil, CEP: 85851-000<br />
+<strong>Tel.:</strong> +55 (45) 3525-2652 – Fax: +55 (45) 3525-5511<br />
+<strong><em>Site:</em></strong> www.apexinternacional.org<br />
+<strong>Contato:</strong> <a href="mailto:contato@apexinternacional.org" class="email">contato@apexinternacional.org</a></p>
+<p>ARACÊ – Associação Internacional para Evolução da Consciência<br />
+<strong>Fundação:</strong> 14/04/2001<br />
+<strong><em>Campus</em> ARACÊ:</strong> Rota do Conhecimento, Km 7, acesso pela BR-262 Km 87, Distrito de Aracê, Domingos Martins, Espírito Santo, Brasil<br />
+<strong>Endereço para correspondência:</strong> Caixa Postal 110, Pedra Azul, Domingos Martins, Espírito Santo, Brasil, CEP: 29278-000<br />
+<strong>Tel.:</strong> +55 (27) 9739-2400<br />
+<strong><em>Site:</em></strong> www.arace.org<br />
+<strong>Contato:</strong> <a href="mailto:associacao@arace.org" class="email">associacao@arace.org</a></p>
+<p>ASSINVÉXIS – Associação Internacional de Inversão Existencial<br />
+<strong>Fundação:</strong> 22/07/2004<br />
+<strong><em>Campus</em> de Invexologia:</strong> Av. Maria Bubiak, 1.100, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85853-728<br />
+<strong>Tel.:</strong> +55 (45) 3525-0913<br />
+<strong><em>Site:</em></strong> www.assinvexis.org<br />
+<strong>Contato:</strong> <a href="mailto:contato@assinvexis.org" class="email">contato@assinvexis.org</a></p>
+<p>ASSIPI – Associação Internacional de Parapsiquismo Interassistencial<br />
+<strong>Fundação:</strong> 29/12/2011<br />
+<strong>Sede:</strong> Av. Felipe Wandscheer, 6.200, sala 212, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong>Tel.:</strong> +55 (45) 2102-1421 – VOIP: +55 (45) 4053-9818<br />
+<strong><em>Site:</em></strong> www.assipi.org<br />
+<strong>Contato:</strong> <a href="mailto:assipi@assipi.com" class="email">assipi@assipi.com</a></p>
+<p>CEAEC – Associação Internacional do Centro de Altos Estudos da Conscienciologia<br />
+<strong>Fundação:</strong> 15/07/1995<br />
+<strong>Sede:</strong> Rua da Cosmoética, 1.511, Cognópolis, Caixa Postal 921, Centro, Foz do Iguaçu, Paraná, Brasil, CEP: 85851-000<br />
+<strong>Tel.:</strong> +55 (45) 3525-2652 – <a href="Fax:+55" class="uri">Fax:+55</a> (45) 3525-5511<br />
+<strong><em>Site:</em></strong> www.ceaec.org<br />
+<strong>Contato:</strong> <a href="mailto:ceaec@ceaec.org" class="email">ceaec@ceaec.org</a></p>
+<p>COMUNICONS – Associação Internacional de Comunicação Conscienciológica<br />
+<strong>Fundação:</strong> 24/07/2005<br />
+<strong>Sede:</strong> Av. Felipe Wandscheer, 6.200, sala 206, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong>Tel.:</strong> +55 (45) 2102-1409<br />
+<strong><em>Site:</em></strong> www.comunicons.org.br<br />
+<strong>Contato:</strong> <a href="mailto:comunicons@comunicons.org" class="email">comunicons@comunicons.org</a></p>
+<p>CONSCIUS – Associação Internacional de Conscienciometria Interassistencial<br />
+<strong>Fundação:</strong> 24/02/2006<br />
+<strong>Sede:</strong> Av. Felipe Wandscheer, 6.200, casa 352, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong>Tel.:</strong> +55 (45) 2102-1460<br />
+<strong><em>Site:</em></strong> www.conscius.org.br<br />
+<strong>Contato:</strong> <a href="mailto:conscius@conscius.org.br" class="email">conscius@conscius.org.br</a></p>
+<p>CONSECUTIVUS – Associação Internacional de Pesquisas Seriexológicas e Holobiográficas<br />
+<strong>Fundação:</strong> 14/12/2014<br />
+<strong>Sede:</strong> Av. Felipe Wandscheer, 6.200, Casa 351, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong>Tel.:</strong> +55 (45) 9807-1320<br />
+<strong><em>Site:</em></strong> www.consecutivus.com.br<br />
+<strong>Contato:</strong> <a href="mailto:consecutivus@consecutivus.com.br" class="email">consecutivus@consecutivus.com.br</a></p>
+<p>COSMOETHOS – Associação Internacional de Cosmoeticologia<br />
+<strong>Fundação:</strong> 03/10/2015<br />
+<strong>Sede:</strong> Av. Felipe Wandscheer, 6.200, sala 104, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong>Tel.:</strong> +55 (45) 99921-4122<br />
+<strong><em>Site:</em></strong> www.cosmoethos.org.br<br />
+<strong>Contato:</strong> <a href="mailto:contato@cosmoethos.org.br" class="email">contato@cosmoethos.org.br</a></p>
+<p>ECTOLAB – Associação Internacional de Pesquisa Laboratorial em Ectoplasmia e Paracirurgia<br />
+<strong>Fundação:</strong> 14/07/2013<br />
+<strong>Sede:</strong> Avenida Felipe Wandscheer, 6.200, sala 105, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong>Tel.:</strong> +55 (45) 2102-1427<br />
+<strong><em>Site:</em></strong> www.ectolab.org<br />
+<strong>Contato:</strong> <a href="mailto:ectolab@ectolab.org" class="email">ectolab@ectolab.org</a></p>
+<p>EDITARES – Associação Internacional Editares<br />
+<strong>Fundação:</strong> 23/10/2004<br />
+<strong>Sede:</strong> Av. Felipe Wandscheer, 6.200, sala 107, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong>Tel.:</strong> +55 (45) 2102-1407 – VOIP: +55 (45) 4053-953<br />
+<strong><em>Site:</em></strong> www.editares.org.br<br />
+<strong>Contato:</strong> <a href="mailto:vendas@editares.org" class="email">vendas@editares.org</a></p>
+<p>ENCYCLOSSAPIENS – Associação Internacional de Enciclopediologia Conscienciológica<br />
+<strong>Fundação:</strong> 21/12/2013<br />
+<strong>Sede:</strong> Rua da Cosmoética, 1.511, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85851-000, Caixa Postal 921<br />
+<strong>Tel.:</strong> +55 (45) 3525-2652 – Fax: +55 (45) 3525-5511<br />
+<strong><em>Site:</em></strong> www.encyclossapiens.org<br />
+<strong>Contato:</strong> <a href="mailto:contato@encyclossapiens.org" class="email">contato@encyclossapiens.org</a></p>
+<p>EVOLUCIN – Associação Internacional de Conscienciologia para Infância<br />
+<strong>Fundação:</strong> 09/07/2006<br />
+<strong>Sede:</strong> Av. Felipe Wandscheer, 6.200, sala 102, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong>Tel.:</strong> +55 (45) 9909-6129<br />
+<strong><em>Site:</em></strong> www.evolucin.org<br />
+<strong>Contato:</strong> <a href="mailto:evolucin@gmail.com" class="email">evolucin@gmail.com</a></p>
+<p>IC TENEPES – Associação Internacional de Tenepessologia<br />
+<strong>Fundação:</strong> 11/06/2016<br />
+<strong>Sede:</strong> Av. Felipe Wandscheer, 6.200, sala 205, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong>Tel.:</strong> +55 (45) 9131-2855<br />
+<strong><em>Site:</em></strong> www.ictenepes.org</p>
+<p>IIPC – Instituto Internacional de Projeciologia e Conscienciologia<br />
+<strong>Fundação:</strong> 16/01/1988<br />
+<strong>Sede:</strong> Av. Felipe Wandscheer, 6.200, sala 103, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong><em>Campus</em> de Pesquisas IIPC:</strong> Estrada do Universalismo, 1.177, Sampaio Correa, Saquarema, Rio de Janeiro, Brasil, CEP: 28997-970<br />
+<strong>Tel.:</strong> +55 (45) 2102-1448<br />
+<strong><em>Site:</em></strong> www.iipc.org.br<br />
+<strong>Contato:</strong> <a href="mailto:iipc@iipc.org.br" class="email">iipc@iipc.org.br</a></p>
+<p>INTERCAMPI – Associação Internacional dos <em>Campi</em> de Pesquisas da Conscienciologia<br />
+<strong>Fundação:</strong> 23/07/2005<br />
+<strong>Sede:</strong> Av. Antonio Basílio, 3006, sala 602, Lagoa Nova, Natal, Rio Grande do Norte, Brasil, CEP: 59056-005<br />
+<strong>Tel.:</strong> +55 (84) 3211-3126<br />
+<strong><em>Site:</em></strong> www.intercampi.org<br />
+<strong>Contato:</strong> <a href="mailto:intercampi@intercampi.org" class="email">intercampi@intercampi.org</a></p>
+<p>INTERPARES – Associação Internacional de Aportes Interassistenciais<br />
+<strong>Fundação:</strong> 15/05/2016<br />
+<strong>Sede:</strong> Rua Cosmoética, 1.635, sala 11, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85853-755<br />
+<strong>Tel.:</strong> +55 (45) 9 9124-7689<br />
+<strong><em>Site:</em></strong> www.interpares.org.br<br />
+<strong>Contato:</strong> <a href="mailto:interpares@interpares.org.br" class="email">interpares@interpares.org.br</a></p>
+<p>JURISCONS – Associação Internacional de Paradireitologia<br />
+<strong>Fundação:</strong> 25/04/2015<br />
+<strong>Sede:</strong> Av. Felipe Wandscheer, 6.200, sala 350 A, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong><em>Site:</em></strong> www.juriscons.org<br />
+<strong>Contato:</strong> <a href="mailto:juriscons@juriscons.org" class="email">juriscons@juriscons.org</a></p>
+<p>OIC – Organização Internacional de Consciencioterapia<br />
+<strong>Fundação:</strong> 06/09/2003<br />
+<strong><em>Campus</em> OIC:</strong> Av. Felipe Wandscheer, 6.945, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong>Tel.:</strong> +55 (45) 3025-1404<br />
+<strong><em>Site:</em></strong> www.oic.org.br<br />
+<strong>Contato:</strong> <a href="mailto:aco@oic.org.br" class="email">aco@oic.org.br</a></p>
+<p>ORTHOCOGNITIVUS – Associação Internacional para Implantação da Cognópolis em SC<br />
+<strong>Fundação:</strong> 18/05/2018<br />
+<strong>Sede:</strong> Av. Mal. Castelo Branco, 65, Sala 1111, Torre II, São José, Santa Catarina, Brasil, CEP: 88101-020<br />
+<strong>Tel.:</strong> +55 (48) 99845-9931<br />
+<strong><em>Site:</em></strong> www.cognopolis-sc.org<br />
+<strong>Contato:</strong> <a href="mailto:contato@cognopolis-sc.org" class="email">contato@cognopolis-sc.org</a></p>
+<p>REAPRENDENTIA – Associação Internacional de Parapedagogia e Reeducação Consciencial<br />
+<strong>Fundação:</strong> 21/10/2007<br />
+<strong>Sede:</strong> Felipe Wandscheer, 6.560, Cognópolis Foz do Iguaçu, Paraná, Brasil, CEP: 85853-755, Caixa Postal 921<br />
+<strong>Tel.:</strong> +55 (45) 3525-2652 – Fax: +55 (45) 3525-5511<br />
+<strong><em>Site:</em></strong> www.reaprendentia.org<br />
+<strong>Contato:</strong> <a href="mailto:contato@reaprendentia.org.br" class="email">contato@reaprendentia.org.br</a></p>
+<p>UNICIN – União das Instituições Conscienciocêntricas Internacionais<br />
+<strong>Fundação:</strong> 22/01/2005<br />
+<strong>Sede:</strong> Av. Felipe Wandscheer, 6.200, sala 105, Cognópolis, Foz do Iguaçu, Paraná, Brasil, CEP: 85856-750<br />
+<strong>Tel.:</strong> +55 (45) 2102-1405<br />
+<strong><em>Site:</em></strong> www.unicin.org<br />
+<strong>Contato:</strong> <a href="mailto:unicin@unicin.org" class="email">unicin@unicin.org</a></p>
+<p>UNIESCON – União Internacional de Escritores da Conscienciologia<br />
+<strong>Fundação:</strong> 23/11/2008<br />
+<strong>Sede:</strong> Rua da Cosmoética, 1.511, Cognópolis, Centro, Foz do Iguaçu, Paraná, Brasil, CEP: 85851-000<br />
+<strong>Tel.:</strong> +55 (45) 3525-2652 – <a href="Fax:+55" class="uri">Fax:+55</a> (45) 3525-5511<br />
+<strong><em>Site:</em></strong> www.uniescon.org<br />
+<strong>Contato:</strong> <a href="mailto:uniescon.ccci@gmail.com" class="email">uniescon.ccci@gmail.com</a></p>
+</div>
+<div id="publicações-da-editares" class="section level1">
+<h1>Publicações da Editares</h1>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Autores</th>
+<th align="left">Livros publicados em inglês</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Alessandra Nascimento e Felix Wong</td>
+<td align="left">Conscientiology is news: Projectiology</td>
+</tr>
+<tr class="even">
+<td align="left">Débora Klippel</td>
+<td align="left">The Little Researcher: Multidimensionality</td>
+</tr>
+<tr class="odd">
+<td align="left">Eduardo Martins</td>
+<td align="left">Consciential Hygiene</td>
+</tr>
+<tr class="even">
+<td align="left">Eliane Wojslaw, Jaclyn Cowen, Jeffrey Lloyd, Liliana Alexandre</td>
+<td align="left">The English-Portuguese Glossary of Essential Conscientiology Terms</td>
+</tr>
+<tr class="odd">
+<td align="left">Eliana Manfroi</td>
+<td align="left">Consciential Antiwastage</td>
+</tr>
+<tr class="even">
+<td align="left">Flávio Monteiro e Pedro Marcelino</td>
+<td align="left">Cons: Understanding Our Evolution</td>
+</tr>
+<tr class="odd">
+<td align="left">Jayme Pereira</td>
+<td align="left">Barbarah Visits a Star</td>
+</tr>
+<tr class="even">
+<td align="left">Lilian Zolet</td>
+<td align="left">Parapsychism in Childhood</td>
+</tr>
+<tr class="odd">
+<td align="left">Mabel Teles</td>
+<td align="left">Zephyrus</td>
+</tr>
+<tr class="even">
+<td align="left">Marcelo da Luz</td>
+<td align="left">Where does religion end?</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">700 Conscientiology Experiments</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">Conscientiogram</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Our evolution</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">Penta manual</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Proexis manual</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">Projectiology – a panorama of experiences of the consciousness outside the human body</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Projections of the consciousness</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Autores</th>
+<th align="left">Livros publicados em espanhol</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Alessandra Nascimento e Felix Wong</td>
+<td align="left">Concienciología es noticia: una década de entrevistas en la super radio tupi, tema - proyecciología</td>
+</tr>
+<tr class="even">
+<td align="left">Gloria Thiago</td>
+<td align="left">Viviendo en multiples dimensiones</td>
+</tr>
+<tr class="odd">
+<td align="left">Malu Balona</td>
+<td align="left">Síndrome del extranjero</td>
+</tr>
+<tr class="even">
+<td align="left">Maximiliano Haymann</td>
+<td align="left">Síndrome del ostracismo</td>
+</tr>
+<tr class="odd">
+<td align="left">Miguel Cirera</td>
+<td align="left">Evolución de la inteligencia parapsíquica</td>
+</tr>
+<tr class="even">
+<td align="left">Rosemary Salles</td>
+<td align="left">Conciencia en revolución</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Concienciograma</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">Nuestra evolución</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Manual de la teneper</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">Manual de la proexis</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Proyecciones de la conciencia</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Autores</th>
+<th align="left">Livros publicados em português</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Adriana Kauati</td>
+<td align="left">Síndrome do impostor</td>
+</tr>
+<tr class="even">
+<td align="left">Adriana Lopes</td>
+<td align="left">Sensos evolutivos e contrassensos regressivos</td>
+</tr>
+<tr class="odd">
+<td align="left">Alessandra Nascimento e Felix Wong</td>
+<td align="left">Conscienciologia é notícia</td>
+</tr>
+<tr class="even">
+<td align="left">Alexandre Nonato</td>
+<td align="left">Jk e os bastidores da construção de Brasília</td>
+</tr>
+<tr class="odd">
+<td align="left">Alexandre Nonato et. al.</td>
+<td align="left">Acoplamento energético</td>
+</tr>
+<tr class="even">
+<td align="left">Alexandre Nonato et. al.</td>
+<td align="left">Inversão existencial</td>
+</tr>
+<tr class="odd">
+<td align="left">Aline Niemeyer</td>
+<td align="left">Megapensenes trivocabulares da interassistencialidade</td>
+</tr>
+<tr class="even">
+<td align="left">Aline Niemeyer e Lilian Zolet</td>
+<td align="left">Técnicas bioenergéticas para crianças</td>
+</tr>
+<tr class="odd">
+<td align="left">Almir Justi, Amin Lascani e Dayane Rossa</td>
+<td align="left">Competências parapsíquicas</td>
+</tr>
+<tr class="even">
+<td align="left">Alzemiro Rufino de Matos</td>
+<td align="left">Vida: oportunidade de aprender</td>
+</tr>
+<tr class="odd">
+<td align="left">Alzira Gesing</td>
+<td align="left">Intenção</td>
+</tr>
+<tr class="even">
+<td align="left">Ana Luiza Resende, Eliana Esquiante, Guilherme Kunz, Lilian Zolet, Patrícia Pialarissi</td>
+<td align="left">Manual do ECP2: Extensão em Conscienciologia e Projeciologia 2</td>
+</tr>
+<tr class="odd">
+<td align="left">Ana Seno</td>
+<td align="left">Comunicação evolutiva</td>
+</tr>
+<tr class="even">
+<td align="left">Anália Rosário Lopes, Myriam Sanchez e Rita Sawaya</td>
+<td align="left">Dicionário de tecas da holotecologia</td>
+</tr>
+<tr class="odd">
+<td align="left">Antonio Fontenele</td>
+<td align="left">Decisões Evolutivas</td>
+</tr>
+<tr class="even">
+<td align="left">Antonio Pitaguari e Marina Thomaz</td>
+<td align="left">Redação e estilística conscienciológica</td>
+</tr>
+<tr class="odd">
+<td align="left">Arlindo Alcadipani</td>
+<td align="left">Itinerário evolutivo de um reciclante</td>
+</tr>
+<tr class="even">
+<td align="left">Bárbara Ceotto</td>
+<td align="left">Diário de autocura</td>
+</tr>
+<tr class="odd">
+<td align="left">Caio Polizel</td>
+<td align="left">Diretrizes da Autogestão Existencial</td>
+</tr>
+<tr class="even">
+<td align="left">Cesar Cordioli</td>
+<td align="left">Calepino Conscienciológico: Coleção de Apontamentos Pró-Evolutivos</td>
+</tr>
+<tr class="odd">
+<td align="left">Cesar Cordioli</td>
+<td align="left">Conscienciologia: uma Breve Introdução à Ciência da Consciência</td>
+</tr>
+<tr class="even">
+<td align="left">Cesar Machado</td>
+<td align="left">Antivitimização</td>
+</tr>
+<tr class="odd">
+<td align="left">Cesar Machado</td>
+<td align="left">Proatividade evolutiva</td>
+</tr>
+<tr class="even">
+<td align="left">Cesar Machado e Stéfani Sabetzki</td>
+<td align="left">Humanização parapsíquica na UTI</td>
+</tr>
+<tr class="odd">
+<td align="left">Cirleine Couto</td>
+<td align="left">Contrapontos do parapsiquismo</td>
+</tr>
+<tr class="even">
+<td align="left">Cirleine Couto</td>
+<td align="left">Inteligência evolutiva cotidiana</td>
+</tr>
+<tr class="odd">
+<td align="left">Dalva Morem</td>
+<td align="left">Sempre é tempo</td>
+</tr>
+<tr class="even">
+<td align="left">Dayane Rossa</td>
+<td align="left">Oportunidade de viver</td>
+</tr>
+<tr class="odd">
+<td align="left">Débora Klippel</td>
+<td align="left">O pequeno pesquisador: multidimensionalidade</td>
+</tr>
+<tr class="even">
+<td align="left">Dulce Daou</td>
+<td align="left">Autoconsciência e multidimensionalidade</td>
+</tr>
+<tr class="odd">
+<td align="left">Dulce Daou</td>
+<td align="left">Vontade: consciência inteira</td>
+</tr>
+<tr class="even">
+<td align="left">Eduardo Martins</td>
+<td align="left">Higiene consciencial</td>
+</tr>
+<tr class="odd">
+<td align="left">Eliana Manfroi</td>
+<td align="left">Antidesperdício consciencial</td>
+</tr>
+<tr class="even">
+<td align="left">Fernando Sivelli e Marineide Gregório</td>
+<td align="left">Autoexperimentografia projeciológica</td>
+</tr>
+<tr class="odd">
+<td align="left">Flavia Rogick</td>
+<td align="left">Consciência centrada na assistência</td>
+</tr>
+<tr class="even">
+<td align="left">Flavia Rogick</td>
+<td align="left">Mudar ou mudar</td>
+</tr>
+<tr class="odd">
+<td align="left">Flavio Amado</td>
+<td align="left">Teáticas da tenepes</td>
+</tr>
+<tr class="even">
+<td align="left">Flávio Buononato</td>
+<td align="left">Anuário da Conscienciologia 2012</td>
+</tr>
+<tr class="odd">
+<td align="left">Flávio Buononato</td>
+<td align="left">Anuário da Conscienciologia 2013</td>
+</tr>
+<tr class="even">
+<td align="left">Flávio Buononato</td>
+<td align="left">Anuário da Conscienciologia 2014</td>
+</tr>
+<tr class="odd">
+<td align="left">Flávio Buononato</td>
+<td align="left">Fatos e parafatos da cognópolis Foz do Iguaçu</td>
+</tr>
+<tr class="even">
+<td align="left">Flávio Monteiro e Pedro Marcelino</td>
+<td align="left">Cons – compreendendo nossa evolução</td>
+</tr>
+<tr class="odd">
+<td align="left">Graça Razera</td>
+<td align="left">Hiperatividade eficaz</td>
+</tr>
+<tr class="even">
+<td align="left">Guilherme Kunz</td>
+<td align="left">Manual do materpensene</td>
+</tr>
+<tr class="odd">
+<td align="left">Isabel Manfroi</td>
+<td align="left">O empreendedorismo reurbanizador de Hércules Galló e Waldo Vieira</td>
+</tr>
+<tr class="even">
+<td align="left">Jacqueline Nahas e Pedro Fernandes</td>
+<td align="left">Homo lexicographus</td>
+</tr>
+<tr class="odd">
+<td align="left">Jayme Pereira</td>
+<td align="left">Bárbarah vai à estrela</td>
+</tr>
+<tr class="even">
+<td align="left">Jayme Pereira</td>
+<td align="left">Princípios do estado mundial cosmoético</td>
+</tr>
+<tr class="odd">
+<td align="left">João Aurélio e Kátia Arakaki</td>
+<td align="left">Cognópolis Foz: um lugar para se viver</td>
+</tr>
+<tr class="even">
+<td align="left">João Paulo Costa e Dayane Rossa</td>
+<td align="left">Manual da conscin-cobaia</td>
+</tr>
+<tr class="odd">
+<td align="left">João Ricardo Schneider</td>
+<td align="left">História do Parapsiquismo</td>
+</tr>
+<tr class="even">
+<td align="left">Jovilde Montagna</td>
+<td align="left">Vivências parapsíquicas de uma pediatra</td>
+</tr>
+<tr class="odd">
+<td align="left">Julieta Mendonça</td>
+<td align="left">Manual do texto dissertativo</td>
+</tr>
+<tr class="even">
+<td align="left">Julio Almeida</td>
+<td align="left">Qualificação autoral</td>
+</tr>
+<tr class="odd">
+<td align="left">Julio Almeida</td>
+<td align="left">Qualificações da consciência</td>
+</tr>
+<tr class="even">
+<td align="left">Kátia Arakaki</td>
+<td align="left">Antibagulhismo energético</td>
+</tr>
+<tr class="odd">
+<td align="left">Kátia Arakaki</td>
+<td align="left">Autofiex: Teática do Ofiexista Waldo Vieira</td>
+</tr>
+<tr class="even">
+<td align="left">Kátia Arakaki</td>
+<td align="left">Viagens internacionais</td>
+</tr>
+<tr class="odd">
+<td align="left">Laura Sánchez</td>
+<td align="left">Lastanosa: memória e história do intelectual e holotecário do século XVII</td>
+</tr>
+<tr class="even">
+<td align="left">Lilian Zolet</td>
+<td align="left">Parapsiquismo na infância</td>
+</tr>
+<tr class="odd">
+<td align="left">Lilian Zolet e Flávio Buononato</td>
+<td align="left">Manual do Acoplamentarium</td>
+</tr>
+<tr class="even">
+<td align="left">Lilian Zolet e Guilherme Kunz</td>
+<td align="left">Acoplamentarium: primeira década</td>
+</tr>
+<tr class="odd">
+<td align="left">Lourdes Pinheiro e Felipe Araújo</td>
+<td align="left">Dicionário de verbos conjugados da língua portuguesa</td>
+</tr>
+<tr class="even">
+<td align="left">Luciana Lavôr</td>
+<td align="left">Noite de gala mnemônica</td>
+</tr>
+<tr class="odd">
+<td align="left">Luciano Vicenzi</td>
+<td align="left">Coragem para evoluir</td>
+</tr>
+<tr class="even">
+<td align="left">Lucy Lutfi</td>
+<td align="left">Voltei para contar</td>
+</tr>
+<tr class="odd">
+<td align="left">Luiz Bonassi</td>
+<td align="left">Paradoxos</td>
+</tr>
+<tr class="even">
+<td align="left">Mabel Teles</td>
+<td align="left">Profilaxia das manipulações conscienciais</td>
+</tr>
+<tr class="odd">
+<td align="left">Mabel Teles</td>
+<td align="left">Zéfiro</td>
+</tr>
+<tr class="even">
+<td align="left">Málu Balona</td>
+<td align="left">Autocura através da reconciliação</td>
+</tr>
+<tr class="odd">
+<td align="left">Málu Balona</td>
+<td align="left">Síndrome do estrangeiro</td>
+</tr>
+<tr class="even">
+<td align="left">Marcelo da Luz</td>
+<td align="left">Onde a religião termina?</td>
+</tr>
+<tr class="odd">
+<td align="left">Maria Helena Lagrota</td>
+<td align="left">Minhas quatro estações</td>
+</tr>
+<tr class="even">
+<td align="left">Maria Thereza Lacerda</td>
+<td align="left">A pedra do caminho</td>
+</tr>
+<tr class="odd">
+<td align="left">Marilza de Andrade</td>
+<td align="left">Projeções assistenciais</td>
+</tr>
+<tr class="even">
+<td align="left">Marina Thomaz e Antonio Pitaguari</td>
+<td align="left">Tenepes: assistência interdimensional lúcida</td>
+</tr>
+<tr class="odd">
+<td align="left">Marta Ramiro</td>
+<td align="left">Manual da técnica da recéxis</td>
+</tr>
+<tr class="even">
+<td align="left">Maximiliano Haymann</td>
+<td align="left">Prescrições para o autodesassédio</td>
+</tr>
+<tr class="odd">
+<td align="left">Maximiliano Haymann</td>
+<td align="left">Síndrome do ostracismo</td>
+</tr>
+<tr class="even">
+<td align="left">Miriam Kunz</td>
+<td align="left">Antropozooconviviologia</td>
+</tr>
+<tr class="odd">
+<td align="left">Moacir Gonçalves e Rosemary Salles</td>
+<td align="left">Dinâmicas parapsíquicas</td>
+</tr>
+<tr class="even">
+<td align="left">Osmar Ramos Filho</td>
+<td align="left">Cristo espera por ti (edição comentada)</td>
+</tr>
+<tr class="odd">
+<td align="left">Paulo Mello</td>
+<td align="left">Evolutividade planejada</td>
+</tr>
+<tr class="even">
+<td align="left">Phelipe Mansur</td>
+<td align="left">Empreendedorismo evolutivo</td>
+</tr>
+<tr class="odd">
+<td align="left">Reinalda Fritzen</td>
+<td align="left">Caminhos de autossuperação</td>
+</tr>
+<tr class="even">
+<td align="left">Ricardo Rezende</td>
+<td align="left">Voluntariado Conscienciológico Interassistencial</td>
+</tr>
+<tr class="odd">
+<td align="left">Roberto Leimig</td>
+<td align="left">Vidas de naturalista</td>
+</tr>
+<tr class="even">
+<td align="left">Rodrigo Medeiros</td>
+<td align="left">Clarividência</td>
+</tr>
+<tr class="odd">
+<td align="left">Rosa Nader</td>
+<td align="left">Autodesrepressão</td>
+</tr>
+<tr class="even">
+<td align="left">Rosa Nader</td>
+<td align="left">Manual de verbetografia</td>
+</tr>
+<tr class="odd">
+<td align="left">Roseli Oliveira</td>
+<td align="left">Dicionário de eufemismos da língua portuguesa</td>
+</tr>
+<tr class="even">
+<td align="left">Rosemary Salles</td>
+<td align="left">Consciência em revolução</td>
+</tr>
+<tr class="odd">
+<td align="left">Sandra Tornieri</td>
+<td align="left">Mapeamento da sinalética energética parapsíquica</td>
+</tr>
+<tr class="even">
+<td align="left">Selma Prata</td>
+<td align="left">O Cérebro envelhece e o Paracérebro enriquece</td>
+</tr>
+<tr class="odd">
+<td align="left">Silda Dries</td>
+<td align="left">Teoria e prática da experiência fora do corpo</td>
+</tr>
+<tr class="even">
+<td align="left">Tathiana Mota</td>
+<td align="left">Curso intermissivo</td>
+</tr>
+<tr class="odd">
+<td align="left">Tatiana Lopes</td>
+<td align="left">Desenvolvimento da projetabilidade lúcida</td>
+</tr>
+<tr class="even">
+<td align="left">Tony Musskopf</td>
+<td align="left">Autenticidade consciencial</td>
+</tr>
+<tr class="odd">
+<td align="left">Vera Hoffmann</td>
+<td align="left">Sem medo da morte</td>
+</tr>
+<tr class="even">
+<td align="left">Vera Tanuri</td>
+<td align="left">Perdão</td>
+</tr>
+<tr class="odd">
+<td align="left">Wagner Alegretti</td>
+<td align="left">Retrocognições</td>
+</tr>
+<tr class="even">
+<td align="left">Wagner Strachicini</td>
+<td align="left">Consciência Antidogmática</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">500 verbetógrafos da enciclopédia da Conscienciologia</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">700 experimentos da Conscienciologia</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Dicionário de argumentos da Conscienciologia</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">Dicionário de neologismos da Conscienciologia</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Enciclopédia da Conscienciologia</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">Homo sapiens pacificus</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Homo sapiens reurbanisatus</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">Léxico de ortopensatas</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Manual da dupla evolutiva</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">Manual da proéxis</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Manual da tenepes</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">Manual dos megapensenes trivocabulares</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Nossa evolução</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">O que é a conscienciologia</td>
+</tr>
+<tr class="odd">
+<td align="left">Waldo Vieira</td>
+<td align="left">Projeciologia</td>
+</tr>
+<tr class="even">
+<td align="left">Waldo Vieira</td>
+<td align="left">Projeções da consciência</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Autores</th>
+<th align="left">Livros publicados em alemão</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Jayme Pereira</td>
+<td align="left">Barbarah fliegt zum Stern</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
